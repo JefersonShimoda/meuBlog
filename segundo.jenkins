@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/seu-usuario/meu-blog.git'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Static Code Analysis') {
+            steps {
+                sh 'npm run lint'
+            }
+        }
+
+        stage('Unit Tests') {
+            steps {
+                sh 'npm test'
+            }
+        }
+
+        stage('Deploy Staging') {
+            steps {
+                sh 'npm run deploy-staging'
+            }
+        }
+
+        stage('Deploy Production') {
+            steps {
+                sh 'npm run deploy-production'
+            }
+        }
+
+        stage('Notification') {
+            steps {
+                emailext body: 'A pipeline do blog foi concluída com sucesso!',
+                    subject: 'Notificação de Pipeline - Blog',
+                    to: 'jefshimoda@edu.unifil.br'
+            }
+        }
+    }
+}
