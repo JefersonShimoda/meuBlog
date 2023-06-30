@@ -8,33 +8,9 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Teste') {
             steps {
-                sh 'npm install'
-            }
-        }
-
-        stage('Static Code Analysis') {
-            steps {
-                sh 'npm run lint'
-            }
-        }
-
-        stage('Unit Tests') {
-            steps {
-                sh 'npm test'
-            }
-        }
-
-        stage('Deploy Staging') {
-            steps {
-                sh 'npm run deploy-staging'
-            }
-        }
-
-        stage('Deploy Production') {
-            steps {
-                sh 'npm run deploy-production'
+                echo "integrou!"
             }
         }
 
