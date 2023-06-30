@@ -1,0 +1,17 @@
+{
+    "name": "meu-blog",
+    "version": "1.0.0",
+    "description": "Exemplo de blog simples",
+    "scripts": {
+      "install": "npm install",
+      "lint": "eslint .",
+      "test": "mocha",
+      "deploy-staging": "echo 'Implantação em ambiente de staging'",
+      "deploy-production": "echo 'Implantação em ambiente de produção'"
+    },
+    "devDependencies": {
+      "eslint": "^7.0.0",
+      "mocha": "^9.0.0"
+    }
+  }
+  
